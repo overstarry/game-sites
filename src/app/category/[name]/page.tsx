@@ -10,6 +10,8 @@ interface CategoryParams {
   name: string;
 }
 
+export const runtime = 'edge';
+
 export default function CategoryPage({ params }: { params: Promise<CategoryParams> }) {
   // In Next.js 15, params is a Promise that needs to be resolved with use() in client components
   const { name } = use(params);

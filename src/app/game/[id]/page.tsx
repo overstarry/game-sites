@@ -48,6 +48,8 @@ interface GameParams {
   id: string;
 }
 
+export const runtime = 'edge';
+
 export default function GamePage({ params }: { params: Promise<GameParams> }) {
   const { t, translateCategory, language } = useLanguage();
   const [gameState, setGameState] = useState<'initial' | 'loading' | 'playing'>('initial');
@@ -181,7 +183,7 @@ export default function GamePage({ params }: { params: Promise<GameParams> }) {
                     title={t('game.fullscreen')}
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-5h-4m4 0v4m0 0l-5-5m-7 11h4m-4 0v4m0 0l5-5m5 5v-4m0 4h-4m0 0l5-5" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-5h-4m4 0v4m0 0l-5-5m-7 11h4m-4 0v4m0 4h-4m0 0l5-5" />
                     </svg>
                   </button>
                   {showNewGameButton && (
