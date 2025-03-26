@@ -10,17 +10,16 @@ import { useLanguage } from "@/i18n/LanguageContext";
 function StarRating({ rating }: { rating: number }) {
   // Round the rating to the nearest integer to ensure consistent rendering
   const roundedRating = Math.round(rating);
-  
+
   return (
     <div className="flex items-center">
       {[1, 2, 3, 4, 5].map((star) => (
         <svg
           key={star}
-          className={`w-4 h-4 ${
-            star <= roundedRating
+          className={`w-4 h-4 ${star <= roundedRating
               ? "text-yellow-400"
               : "text-gray-300"
-          }`}
+            }`}
           fill="currentColor"
           viewBox="0 0 20 20"
         >
@@ -34,7 +33,7 @@ function StarRating({ rating }: { rating: number }) {
 
 function LoadingSpinner() {
   const { t } = useLanguage();
-  
+
   return (
     <div className="flex items-center justify-center h-full bg-gray-100">
       <div className="relative">
@@ -45,13 +44,17 @@ function LoadingSpinner() {
   );
 }
 
-export default function GamePage({ params }: { params: Promise<{ id: string }> }) {
+interface GameParams {
+  id: string;
+}
+
+export default function GamePage({ params }: { params: Promise<GameParams> }) {
   const { t, translateCategory, language } = useLanguage();
   const [gameState, setGameState] = useState<'initial' | 'loading' | 'playing'>('initial');
   const [showNewGameButton, setShowNewGameButton] = useState(false);
   const [iframeRef, setIframeRef] = useState<HTMLIFrameElement | null>(null);
   const [playTime, setPlayTime] = useState<number>(2);
-  
+
   const { id } = use(params);
   const game = games.find((g) => g.id === id);
 
@@ -67,11 +70,11 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
   // Use useMemo to ensure consistent related games calculation
   const relatedGames = useMemo(() => {
     const filtered = games
-      .filter(g => 
-        g.id !== game.id && 
+      .filter(g =>
+        g.id !== game.id &&
         g.categories.some(cat => game.categories.includes(cat))
       );
-    
+
     // Use a stable sorting method instead of random
     return filtered
       .sort((a, b) => b.rating - a.rating)
@@ -108,7 +111,7 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
         <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <Link 
+              <Link
                 href="/"
                 className="text-purple-600 hover:text-purple-700 mr-4"
               >
@@ -136,7 +139,7 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
           </div>
         </div>
       </header>
-      
+
       <main className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
           <div className="relative">
@@ -224,8 +227,8 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
             <h2 className="text-xl font-bold text-gray-800 mb-4">{t('game.relatedGames')}</h2>
             <div className="space-y-4">
               {relatedGames.map(relatedGame => (
-                <Link 
-                  key={relatedGame.id} 
+                <Link
+                  key={relatedGame.id}
                   href={`/game/${relatedGame.id}`}
                   className="flex items-center p-2 -mx-2 rounded-lg hover:bg-gray-50 transition-colors"
                 >
