@@ -5,6 +5,23 @@ import Image from "next/image";
 import { games } from "@/data/games";
 import { useLanguage } from "@/i18n/LanguageContext";
 
+// 分类名到英文slug的映射
+const categoryToSlug = {
+  "热门": "hot",
+  "经典": "classic",
+  "益智": "puzzle",
+  "街机": "arcade",
+  "休闲": "casual",
+  "动作": "action",
+  "射击": "shooting",
+  "解谜": "riddle",
+  "策略": "strategy",
+  "冒险": "adventure"
+};
+
+// 获取分类的英文slug
+const getCategorySlug = (category: string) => categoryToSlug[category as keyof typeof categoryToSlug] || category;
+
 // Get all game categories
 const allCategories = Array.from(
   new Set(games.flatMap(game => game.categories))
@@ -70,7 +87,7 @@ export default function Home() {
             {allCategories.map(category => (
               <Link
                 key={category}
-                href={`/category/${category}`}
+                href={`/category/${getCategorySlug(category)}`}
                 className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
               >
                 {translateCategory(category)}
@@ -165,7 +182,7 @@ export default function Home() {
               <h2 className="text-2xl font-bold mb-6 text-gray-800 flex items-center">
                 {translateCategory(category)}
                 <Link
-                  href={`/category/${category}`}
+                  href={`/category/${getCategorySlug(category)}`}
                   className="ml-4 text-sm text-purple-600 hover:text-purple-700"
                 >
                   {t('home.viewAll')} ({categoryGames.length}) →
@@ -173,41 +190,53 @@ export default function Home() {
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                 {categoryGames.slice(0, 5).map(game => (
-                  <Link
-                    key={`${translateCategory(category)}-${game.id}`}
-                    href={`/game/${game.id}`}
-                    className="group"
-                  >
-                    <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-200 mb-3">
-                      {game.thumbnail ? (
-                        <Image
-                          src={game.thumbnail}
-                          alt={game.titleTranslation?.[language] || game.title}
-                          width={320}
-                          height={180}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-100 to-blue-100">
-                          <span className="text-2xl">{(game.titleTranslation?.[language] || game.title)[0]}</span>
-                        </div>
-                      )}
-                      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-opacity duration-200" />
+                  <div key={`${translateCategory(category)}-${game.id}`} className="flex flex-col">
+                    <Link
+                      href={`/game/${game.id}`}
+                      className="group flex-grow"
+                    >
+                      <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-200 mb-3">
+                        {game.thumbnail ? (
+                          <Image
+                            src={game.thumbnail}
+                            alt={game.titleTranslation?.[language] || game.title}
+                            width={320}
+                            height={180}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-100 to-blue-100">
+                            <span className="text-2xl">{(game.titleTranslation?.[language] || game.title)[0]}</span>
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-opacity duration-200" />
+                      </div>
+                      <h3 className="font-medium text-gray-800 group-hover:text-purple-600 transition-colors">
+                        {game.titleTranslation?.[language] || game.title}
+                      </h3>
+                      <div className="flex items-center text-sm text-gray-500 mt-1">
+                        <span className="flex items-center">
+                          <svg className="w-4 h-4 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                          {game.rating}
+                        </span>
+                        <span className="mx-2">•</span>
+                        <span>{(game.plays / 1000).toFixed(1)}k {language === 'en' ? 'plays' : '次'}</span>
+                      </div>
+                    </Link>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {game.categories.slice(0, 2).map(gameCategory => (
+                        <Link
+                          key={`${game.id}-${gameCategory}`}
+                          href={`/category/${getCategorySlug(gameCategory)}`}
+                          className="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200"
+                        >
+                          {translateCategory(gameCategory)}
+                        </Link>
+                      ))}
                     </div>
-                    <h3 className="font-medium text-gray-800 group-hover:text-purple-600 transition-colors">
-                      {game.titleTranslation?.[language] || game.title}
-                    </h3>
-                    <div className="flex items-center text-sm text-gray-500 mt-1">
-                      <span className="flex items-center">
-                        <svg className="w-4 h-4 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                        {game.rating}
-                      </span>
-                      <span className="mx-2">•</span>
-                      <span>{(game.plays / 1000).toFixed(1)}k {language === 'en' ? 'plays' : '次'}</span>
-                    </div>
-                  </Link>
+                  </div>
                 ))}
               </div>
             </section>
