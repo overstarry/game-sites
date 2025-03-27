@@ -10,6 +10,35 @@ export interface Translations {
 }
 
 export const translationData: Translations = {
+  // About page
+  'about.title': {
+    en: 'About',
+    zh: '关于我们',
+  },
+  'about.mission.title': {
+    en: 'Our Mission',
+    zh: '我们的使命',
+  },
+  'about.mission.content': {
+    en: 'We are dedicated to providing high-quality HTML5 games that are accessible to everyone, anywhere, and at any time. Our platform offers a diverse collection of games that can be played directly in your browser without any downloads.',
+    zh: '我们致力于提供高质量的HTML5游戏，让每个人都能随时随地轻松访问。我们的平台提供丰富多样的游戏，无需下载即可直接在浏览器中畅玩。',
+  },
+  'about.games.title': {
+    en: 'Our Games',
+    zh: '我们的游戏',
+  },
+  'about.games.content': {
+    en: 'We carefully curate our game collection to ensure the best gaming experience. From classic arcade games to modern puzzle challenges, we offer something for everyone. All our games are free to play and optimized for both desktop and mobile devices.',
+    zh: '我们精心策划游戏集合以确保最佳的游戏体验。从经典街机游戏到现代益智挑战，我们为每个人提供适合的游戏。所有游戏都是免费的，并且针对电脑和移动设备进行了优化。',
+  },
+  'about.contact.title': {
+    en: 'Contact Us',
+    zh: '联系我们',
+  },
+  'about.contact.content': {
+    en: 'Have questions or suggestions? We'd love to hear from you! Feel free to reach out to us through our contact form or email.',
+    zh: '有问题或建议？我们很乐意听取您的意见！请随时通过我们的联系表单或电子邮件与我们联系。',
+  },
   // Navigation
   'site.title': {
     en: 'HTML5 Games',
@@ -19,7 +48,7 @@ export const translationData: Translations = {
     en: 'Search games...',
     zh: '搜索游戏...',
   },
-  
+
   // Home page
   'home.hero.title': {
     en: 'Free Online Games',

@@ -36,9 +36,9 @@ const mostPlayedGames = [...games]
 
 export default function Home() {
   const { t, translateCategory, language } = useLanguage();
-  
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 pb-24">
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
@@ -48,7 +48,7 @@ export default function Home() {
           <p className="text-xl text-center text-purple-100 mb-8">
             {t('home.hero.subtitle')}
           </p>
-          
+
           {/* Quick Stats */}
           <div className="flex justify-center gap-8 mb-8 text-center">
             <div>
@@ -64,7 +64,7 @@ export default function Home() {
               <div className="text-purple-200">{t('home.stats.totalPlays')}</div>
             </div>
           </div>
-          
+
           {/* Categories Navigation */}
           <div className="flex flex-wrap justify-center gap-4">
             {allCategories.map(category => (
@@ -119,7 +119,7 @@ export default function Home() {
               ))}
             </div>
           </section>
-          
+
           <section>
             <h2 className="text-2xl font-bold mb-6 text-gray-800">
               {t('home.section.mostPlayed')}
@@ -164,7 +164,7 @@ export default function Home() {
             <section key={translateCategory(category)} className="mb-12">
               <h2 className="text-2xl font-bold mb-6 text-gray-800 flex items-center">
                 {translateCategory(category)}
-                <Link 
+                <Link
                   href={`/category/${category}`}
                   className="ml-4 text-sm text-purple-600 hover:text-purple-700"
                 >
