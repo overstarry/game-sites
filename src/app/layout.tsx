@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { LanguageProvider } from "@/i18n/LanguageContext";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -33,6 +34,20 @@ export default function RootLayout({
           <Navbar />
           {children}
         </LanguageProvider>
+
+        {/* Google Analytics 代码 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-SB8GRHY2FR"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-SB8GRHY2FR');
+          `}
+        </Script>
       </body>
     </html>
   );
