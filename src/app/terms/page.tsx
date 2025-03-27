@@ -19,7 +19,7 @@ export default function TermsPage() {
                         As a user, you agree to:
                         - Comply with all applicable laws and regulations
                         - Not distribute harmful or illegal content
-                        - Not interfere with other users' use of the service
+                        - Not interfere with other users&apos; use of the service
                         - Protect your account security
                     </p>
                 </section>
@@ -34,7 +34,7 @@ export default function TermsPage() {
                 <section>
                     <h2 className="text-xl font-semibold mb-4">Disclaimer</h2>
                     <p>
-                        Our services are provided "as is" without any express or implied warranties. We are not liable for any service interruptions or losses.
+                        Our services are provided &quot;as is&quot; without any express or implied warranties. We are not liable for any service interruptions or losses.
                     </p>
                 </section>
 
@@ -48,7 +48,7 @@ export default function TermsPage() {
                 <section>
                     <h2 className="text-xl font-semibold mb-4">Governing Law</h2>
                     <p>
-                        These terms are governed by the laws of the People's Republic of China. Any disputes should be resolved through friendly negotiation.
+                        These terms are governed by the laws of the People&apos;s Republic of China. Any disputes should be resolved through friendly negotiation.
                     </p>
                 </section>
 

@@ -36,7 +36,7 @@ export const translationData: Translations = {
     zh: '联系我们',
   },
   'about.contact.content': {
-    en: 'Have questions or suggestions? We'd love to hear from you! Feel free to reach out to us through our contact form or email.',
+    en: 'Have questions or suggestions? We\'d love to hear from you! Feel free to reach out to us through our contact form or email.',
     zh: '有问题或建议？我们很乐意听取您的意见！请随时通过我们的联系表单或电子邮件与我们联系。',
   },
   // Navigation
