@@ -14,7 +14,7 @@ export function Footer() {
     ];
 
     return (
-        <footer className="bg-white border-t border-gray-200 py-4 px-4 z-50 fixed bottom-0 left-0 right-0">
+        <footer className="bg-white border-t border-gray-200 py-4 px-4 z-50 w-full">
             <div className="max-w-7xl mx-auto flex justify-between items-center">
                 <div className="text-base text-gray-600">
                     © {(() => {
