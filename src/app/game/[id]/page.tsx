@@ -6,6 +6,7 @@ import { games } from "@/data/games";
 import { notFound } from "next/navigation";
 import { useState, useEffect, use, useMemo } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { categoryColors } from "@/utils/categoryColors";
 
 function StarRating({ rating }: { rating: number }) {
   // Round the rating to the nearest integer to ensure consistent rendering
@@ -17,8 +18,8 @@ function StarRating({ rating }: { rating: number }) {
         <svg
           key={star}
           className={`w-4 h-4 ${star <= roundedRating
-              ? "text-yellow-400"
-              : "text-gray-300"
+            ? "text-yellow-400"
+            : "text-gray-300"
             }`}
           fill="currentColor"
           viewBox="0 0 20 20"
@@ -216,7 +217,7 @@ export default function GamePage({ params }: { params: Promise<GameParams> }) {
                   <Link
                     key={category}
                     href={`/category/${category}`}
-                    className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm hover:bg-purple-200 transition-colors"
+                    className={`px-3 py-1 ${categoryColors[category]?.bg || 'bg-purple-100'} ${categoryColors[category]?.text || 'text-purple-700'} rounded-full text-sm hover:opacity-80 transition-colors`}
                   >
                     {translateCategory(category)}
                   </Link>

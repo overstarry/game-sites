@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Game } from "@/data/games";
+import { categoryColors } from "@/utils/categoryColors";
 
 type CategoryContentProps = {
   categoryName: string;
@@ -12,7 +13,7 @@ type CategoryContentProps = {
 
 export default function CategoryContent({ categoryName, games }: CategoryContentProps) {
   const { t, translateCategory, language } = useLanguage();
-  
+
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
@@ -75,7 +76,7 @@ export default function CategoryContent({ categoryName, games }: CategoryContent
                     <Link
                       key={cat}
                       href={`/category/${cat}`}
-                      className="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200"
+                      className={`text-xs px-2 py-1 rounded-full ${categoryColors[cat]?.bg || 'bg-gray-100'} ${categoryColors[cat]?.text || 'text-gray-600'} hover:bg-gray-200`}
                     >
                       {translateCategory(cat)}
                     </Link>

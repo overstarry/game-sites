@@ -207,6 +207,10 @@ export const translations: Translations = {
     en: 'Classic',
     zh: '经典',
   },
+  'category.classic': {
+    en: 'Classic',
+    zh: '经典',
+  },
   'category.艺术': {
     en: 'Art',
     zh: '艺术',
@@ -286,6 +290,10 @@ export const translations: Translations = {
   'category.Casual': {
     en: 'Casual',
     zh: '休闲',
+  },
+  'category.games': {
+    en: 'games',
+    zh: '个游戏',
   },
   // Add missing translations
   'category.体育': {

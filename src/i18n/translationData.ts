@@ -10,6 +10,27 @@ export interface Translations {
 }
 
 export const translationData: Translations = {
+  // Sitemap page
+  'sitemap.title': {
+    en: 'Sitemap',
+    zh: '站点地图',
+  },
+  'sitemap.description': {
+    en: 'A complete map of all pages on our website',
+    zh: '我们网站上所有页面的完整地图',
+  },
+  'sitemap.categories': {
+    en: 'Game Categories',
+    zh: '游戏分类',
+  },
+  'sitemap.games': {
+    en: 'All Games',
+    zh: '所有游戏',
+  },
+  'sitemap.pages': {
+    en: 'Main Pages',
+    zh: '主要页面',
+  },
   // About page
   'about.title': {
     en: 'About',
@@ -192,93 +213,37 @@ export const translationData: Translations = {
     en: '3D',
     zh: '3D',
   },
-  'category.Sports': {
-    en: 'Sports',
-    zh: '体育',
-  },
-  'category.Sandbox': {
-    en: 'Sandbox',
-    zh: '沙盒',
-  },
-  'category.Popular': {
-    en: 'Popular',
-    zh: '热门',
-  },
   'category.生存': {
     en: 'Survival',
     zh: '生存',
-  },
-  'category.Puzzle': {
-    en: 'Puzzle',
-    zh: '解谜',
-  },
-  'category.Science': {
-    en: 'Science',
-    zh: '科学',
   },
   'category.科幻': {
     en: 'Sci-Fi',
     zh: '科幻',
   },
-  'category.Racing': {
-    en: 'Racing',
-    zh: '赛车',
-  },
-  'category.Strategy': {
-    en: 'Strategy',
-    zh: '策略',
-  },
   'category.管理': {
     en: 'Management',
     zh: '管理',
-  },
-  'category.Classic': {
-    en: 'Classic',
-    zh: '经典',
   },
   'category.艺术': {
     en: 'Art',
     zh: '艺术',
   },
-  'category.Arcade': {
-    en: 'Arcade',
-    zh: '街机',
-  },
-  'category.Mystery': {
-    en: 'Mystery',
-    zh: '解谜',
-  },
-  'category.Parkour': {
-    en: 'Parkour',
-    zh: '跑酷',
-  },
   'category.迷宫': {
     en: 'Maze',
     zh: '迷宫',
-  },
-  'category.Music': {
-    en: 'Music',
-    zh: '音乐',
   },
   'category.黑客': {
     en: 'Hacker',
     zh: '黑客',
   },
-  'category.Innovative': {
-    en: 'Innovative',
-    zh: '创新',
-  },
-  'category.Action': {
-    en: 'Action',
-    zh: '动作',
-  },
   'category.复古': {
     en: 'Retro',
     zh: '复古',
   },
-  'category.Shooting': {
-    en: 'Shooting',
-    zh: '射击',
+  'category.games': {
+    en: 'games',
+    zh: '个游戏',
   },
   'category.工业': {
     en: 'Industrial',
@@ -287,14 +252,6 @@ export const translationData: Translations = {
   'category.恐怖': {
     en: 'Horror',
     zh: '恐怖',
-  },
-  'category.Idle': {
-    en: 'Idle',
-    zh: '放置',
-  },
-  'category.Text': {
-    en: 'Text',
-    zh: '文字',
   },
   'category.极简': {
     en: 'Minimalist',
@@ -308,13 +265,9 @@ export const translationData: Translations = {
     en: 'Simulation',
     zh: '模拟',
   },
-  'category.Adventure': {
-    en: 'Adventure',
-    zh: '冒险',
-  },
-  'category.Casual': {
-    en: 'Casual',
-    zh: '休闲',
+  'category.classic': {
+    en: 'Classic',
+    zh: '经典',
   },
   // Add missing translations
   'category.体育': {
