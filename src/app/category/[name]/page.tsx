@@ -42,7 +42,7 @@ const categoryMappings: Record<string, string> = {
   'hacker': '黑客'
 };
 
-export default function CategoryPage() {
+export default function Page() {
   const params = useParams();
   const categoryNameFromUrl = params?.name ? decodeURIComponent(params.name as string) : '';
   const { t, translateCategory, language } = useLanguage();
