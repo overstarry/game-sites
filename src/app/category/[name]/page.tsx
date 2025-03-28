@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { games } from '@/data/games';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { categoryColors } from '@/utils/categoryColors';
 
 // 添加英文到中文的分类映射
 const categoryMappings: Record<string, string> = {
@@ -123,7 +124,7 @@ export default function Page() {
                       <Link
                         key={`${game.id}-${categoryUrlName}`}
                         href={`/category/${categoryUrlName}`}
-                        className="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200"
+                        className={`text-xs px-2 py-1 rounded-full ${categoryColors[categoryUrlName]?.bg || 'bg-gray-100'} ${categoryColors[categoryUrlName]?.text || 'text-gray-600'} hover:bg-gray-200`}
                       >
                         {translateCategory(typeof category === 'object' ? category.en : category)}
                       </Link>

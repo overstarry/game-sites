@@ -4,17 +4,18 @@ import Link from "next/link";
 import Image from "next/image";
 import { games } from "@/data/games";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { categoryColors } from "@/utils/categoryColors";
 
 // 分类名到英文slug的映射
 const categoryToSlug = {
-  "热门": "hot",
+  "热门": "popular",
   "经典": "classic",
   "益智": "puzzle",
   "街机": "arcade",
   "休闲": "casual",
   "动作": "action",
   "射击": "shooting",
-  "解谜": "riddle",
+  "解谜": "mystery",
   "策略": "strategy",
   "冒险": "adventure"
 };
@@ -88,7 +89,7 @@ export default function Home() {
               <Link
                 key={category}
                 href={`/category/${getCategorySlug(category)}`}
-                className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                className={`px-4 py-2 rounded-full ${categoryColors[category]?.bg || 'bg-white/10'} ${categoryColors[category]?.text || 'text-white'} hover:opacity-80 transition-colors`}
               >
                 {translateCategory(category)}
               </Link>
@@ -230,7 +231,7 @@ export default function Home() {
                         <Link
                           key={`${game.id}-${gameCategory}`}
                           href={`/category/${getCategorySlug(gameCategory)}`}
-                          className="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200"
+                          className={`text-xs px-2 py-1 rounded-full ${categoryColors[gameCategory]?.bg || 'bg-gray-100'} ${categoryColors[gameCategory]?.text || 'text-gray-600'} hover:bg-gray-200`}
                         >
                           {translateCategory(gameCategory)}
                         </Link>
