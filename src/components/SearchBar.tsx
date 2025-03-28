@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Game } from '@/data/games';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { useDebounce } from '@/hooks/useDebounce';
 
 interface SearchBarProps {
   games: Game[];
@@ -15,6 +16,7 @@ export function SearchBar({ games }: SearchBarProps) {
   const [query, setQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [results, setResults] = useState<Game[]>([]);
+  const debouncedQuery = useDebounce(query, 300);
   const searchRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
@@ -29,20 +31,32 @@ export function SearchBar({ games }: SearchBarProps) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  const searchIndex = useMemo(() => {
+    return games.map(game => ({
+      game,
+      searchText: [
+        game.titleTranslation?.[language] || game.title,
+        game.descriptionTranslation?.[language] || game.description,
+        ...game.categories
+      ].join(' ').toLowerCase()
+    }));
+  }, [games, language]);
+
   useEffect(() => {
-    if (query.length >= 1) {
-      const searchResults = games.filter(game => 
-        (game.titleTranslation?.[language] || game.title).toLowerCase().includes(query.toLowerCase()) ||
-        (game.descriptionTranslation?.[language] || game.description).toLowerCase().includes(query.toLowerCase()) ||
-        game.categories.some(cat => cat.toLowerCase().includes(query.toLowerCase()))
-      ).slice(0, 5);
+    if (debouncedQuery.length >= 1) {
+      const searchTerm = debouncedQuery.toLowerCase();
+      const searchResults = searchIndex
+        .filter(({ searchText }) => searchText.includes(searchTerm))
+        .map(({ game }) => game)
+        .slice(0, 5);
       setResults(searchResults);
       setIsOpen(true);
     } else {
       setResults([]);
       setIsOpen(false);
     }
-  }, [query, games, language]);
+  }, [debouncedQuery, searchIndex]);
+
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && results.length > 0) {
