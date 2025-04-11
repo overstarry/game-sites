@@ -1,36 +1,129 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Game Sites Web Project
+
+A Next.js-based web application that serves as a platform for hosting and playing HTML5 games. The site features a collection of classic and modern browser games across various categories.
+
+## Project Structure
+
+The project is organized as follows:
+
+- `web/` - Main web project directory
+  - `src/` - Source code
+    - `app/` - Next.js App Router structure with pages and layouts
+    - `components/` - Reusable React components
+    - `data/` - Data files including game information
+    - `hooks/` - Custom React hooks
+    - `i18n/` - Internationalization (English and Chinese)
+    - `pages/` - Additional page components
+    - `utils/` - Utility functions
+  - `public/` - Static assets
+    - `html5/` - HTML5 games collection (45+ games)
+  - `.next/` - Next.js build output (generated)
+
+## Features
+
+- **HTML5 Game Collection**: 45+ HTML5 games across multiple categories
+- **Multilingual Support**: English and Chinese language support
+- **Responsive Design**: Works across desktop and mobile devices
+- **Game Categories**: Browse games by categories like puzzle, arcade, action, etc.
+- **Game Statistics**: Track ratings and play counts
+- **Optimized for Cloudflare**: Deployment configuration for Cloudflare Pages
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (version 18 or higher recommended)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone <repository-url>
+cd web
+```
+
+2. Install dependencies
+```bash
+npm install
+# or
+yarn install
+```
+
+## Development
+
+Start the development server with Turbopack for faster builds:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Building
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Build the application for production:
 
-## Learn More
+```bash
+npm run build
+# or
+yarn build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Testing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Run ESLint to check for code quality and formatting issues:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run lint
+# or
+yarn lint
+```
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The project is configured for Cloudflare Pages deployment with a standalone output configuration.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run deploy
+# or
+yarn deploy
+```
+
+This uses the `deploy-to-cloudflare.js` script for deployment.
+
+## Technologies
+
+- **Next.js 15**: React framework with App Router
+- **React 19**: UI library
+- **TypeScript**: Type-safe JavaScript
+- **Tailwind CSS 4**: Utility-first CSS framework
+- **ESLint**: Code linting and quality control
+- **Turbopack**: Development server for fast builds
+
+## Internationalization
+
+The application supports English and Chinese languages through a custom i18n implementation using React Context.
+
+Language preferences are stored in the browser's localStorage and can be switched by the user through the language switcher component.
+
+## Game Integration
+
+HTML5 games are hosted in the `/public/html5/` directory, with each game in its own subdirectory. Games are integrated via:
+
+1. Adding game files to the public directory
+2. Adding game metadata to the `src/data/games.ts` file
+3. Games are rendered in iframes when visited
+
+## Contributing
+
+1. Fork the repository
+2. Create a new feature branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+[Specify license information here]
