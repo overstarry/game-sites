@@ -2,99 +2,99 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- 主页 -->
   <url>
-    <loc>https://games.jasminides.com/</loc>
+    <loc>https://overstarry.com/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   
   <!-- 站点地图页面 -->
   <url>
-    <loc>https://games.jasminides.com/sitemap</loc>
+    <loc>https://overstarry.com/sitemap</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <!-- 关于我们页面 -->
   <url>
-    <loc>https://games.jasminides.com/about</loc>
+    <loc>https://overstarry.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <!-- 隐私政策页面 -->
   <url>
-    <loc>https://games.jasminides.com/privacy</loc>
+    <loc>https://overstarry.com/privacy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <!-- 服务条款页面 -->
   <url>
-    <loc>https://games.jasminides.com/terms</loc>
+    <loc>https://overstarry.com/terms</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <!-- 游戏分类页面 -->
   <url>
-    <loc>https://games.jasminides.com/category/popular</loc>
+    <loc>https://overstarry.com/category/popular</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://games.jasminides.com/category/classic</loc>
+    <loc>https://overstarry.com/category/classic</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://games.jasminides.com/category/puzzle</loc>
+    <loc>https://overstarry.com/category/puzzle</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://games.jasminides.com/category/arcade</loc>
+    <loc>https://overstarry.com/category/arcade</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://games.jasminides.com/category/casual</loc>
+    <loc>https://overstarry.com/category/casual</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://games.jasminides.com/category/action</loc>
+    <loc>https://overstarry.com/category/action</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://games.jasminides.com/category/shooting</loc>
+    <loc>https://overstarry.com/category/shooting</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://games.jasminides.com/category/mystery</loc>
+    <loc>https://overstarry.com/category/mystery</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://games.jasminides.com/category/strategy</loc>
+    <loc>https://overstarry.com/category/strategy</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://games.jasminides.com/category/adventure</loc>
+    <loc>https://overstarry.com/category/adventure</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <!-- 游戏详情页面 -->
   <url>
-    <loc>https://games.jasminides.com/game/2048</loc>
+    <loc>https://overstarry.com/game/2048</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://games.jasminides.com/game/pacman</loc>
+    <loc>https://overstarry.com/game/pacman</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

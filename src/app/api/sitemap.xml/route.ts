@@ -21,7 +21,7 @@ const allCategories = Array.from(
 
 export async function GET() {
     // 构建站点地图XML
-    const baseUrl = 'https://games.jasminides.com';
+    const baseUrl = 'https://overstarry.com';
 
     // 创建XML头部
     let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
